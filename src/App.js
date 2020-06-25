@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import "./default.scss";
+import Header from "./components/Header/index.js";
+import Homepage from "./pages/Homepage/index.js";
 
-function App() {
-  const [showMessage, setTrueFalseShowMessage] = useState(false);
-  return <div className="App"></div>;
-}
+const App = () => {
+  return (
+    <div className="App">
+      <Header />
+      <div className="main">
+        <Homepage />
+      </div>
+    </div>
+  );
+};
 
 export default App;
