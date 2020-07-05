@@ -19,6 +19,11 @@ const initialState = {
 };
 
 class App extends Component {
+  // Commands to push to repo:
+  // git add .
+  // git commit -m "commit message"
+  // git push -u origin master
+
   authLister = null;
 
   componentDidMount() {
