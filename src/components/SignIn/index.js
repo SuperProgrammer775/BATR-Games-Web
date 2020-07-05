@@ -7,27 +7,25 @@ import AuthWrapper from "../AuthWrapper/index.js";
 
 import FormInput from "../Forms/FormInput/index.js";
 
-const initialState = {
-  email: "",
-  password: "",
-};
-
 const SignIn = (props) => {
-  handleSubmit = async (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const resetForm = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
 
     try {
       auth.signInWithEmailAndPassword(email, password);
-      this.setState({
-        ...initialState,
-      });
+      resetForm();
     } catch (err) {
       // console.log(err);
     }
   };
-
-  const { email, password } = this.state;
 
   const configAuthWrapper = {
     headline: "Login",
@@ -36,13 +34,13 @@ const SignIn = (props) => {
   return (
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrap">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <FormInput
             type="email"
             name="email"
             value={email}
             placeholder="Email"
-            handleChange={this.handleChange}
+            handleChange={(e) => setEmail(e.target.value)}
           />
 
           <FormInput
@@ -50,7 +48,7 @@ const SignIn = (props) => {
             name="password"
             value={password}
             placeholder="Password"
-            handleChange={this.handleChange}
+            handleChange={(e) => setPassword(e.target.value)}
           />
 
           <Button style={{ paddingBottom: ".5rem" }} type="submit">
