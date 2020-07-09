@@ -15,7 +15,7 @@ const ForgotPassword = (props) => {
 
     try {
       const config = {
-        url: "http://localhost:3001/login",
+        url: "http://localhost:3000/login",
       };
 
       await auth
