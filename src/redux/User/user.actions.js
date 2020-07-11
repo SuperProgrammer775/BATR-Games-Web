@@ -24,6 +24,10 @@ export const signUpUser = ({
   password,
   confirmPassword,
 }) => async (dispatch) => {
+  console.log(displayName);
+  console.log(email);
+  console.log(password);
+  console.log(confirmPassword);
   if (password !== confirmPassword) {
     const err = ["Password and Confirm Password Don't Match"];
     dispatch({
@@ -43,6 +47,7 @@ export const signUpUser = ({
     });
   } catch (err) {
     // console.log(err)
+    // CATCH ERRORS TO MAKE BETTER USER EXPERIENCE
   }
 };
 
