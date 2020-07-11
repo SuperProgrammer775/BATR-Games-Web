@@ -10,26 +10,10 @@ const ForgotPassword = (props) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const config = {
-        url: "http://localhost:3000/login",
-      };
 
-      await auth
-        .sendPasswordResetEmail(email, config)
-        .then(() => {
-          props.history.push("/login");
-        })
-        .catch(() => {
-          const err = ["Email not found. Please sign up"];
-          setErrors(err);
-        });
-    } catch (err) {
-      // console.log(err)
-    }
   };
 
   const configAuthWrapper = {
