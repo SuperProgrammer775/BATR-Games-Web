@@ -45,7 +45,7 @@ const Signup = (props) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(signUpUser(displayName, email, password, confirmPassword));
+    dispatch(signUpUser({ displayName, email, password, confirmPassword }));
   };
 
   const configAuthWrapper = {
