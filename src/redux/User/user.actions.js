@@ -5,6 +5,16 @@ import {
   GoogleProvider,
 } from "../../firebase/utils.js";
 
+export const emailSignInStart = (userCredentials) => ({
+  type: userTypes.EMAIL_SIGN_IN_START,
+  payload: userCredentials,
+});
+
+export const signInSuccess = (user) => ({
+  type: userTypes.SIGN_IN_SUCCESS,
+  payload: user,
+});
+
 export const resetAllAuthForms = () => ({
   type: userTypes.RESET_AUTH_FORMS,
 });
@@ -14,17 +24,9 @@ export const setCurrentUser = (user) => ({
   payload: user,
 });
 
-export const signInUser = ({ email, password }) => async (dispatch) => {
-  try {
-    auth.signInWithEmailAndPassword(email, password);
-    dispatch({
-      type: userTypes.SIGN_IN_SUCCESS,
-      payload: true,
-    });
-  } catch (err) {
-    // console.log(err);
-  }
-};
+// export const signInUser = ({ email, password }) => async (dispatch) => {
+//
+// };
 
 export const signUpUser = ({
   displayName,
